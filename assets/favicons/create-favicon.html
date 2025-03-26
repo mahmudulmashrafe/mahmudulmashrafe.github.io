@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Round Favicon</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #preview {
+            margin: 20px 0;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            display: block;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .output {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .sizes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .size-item {
+            text-align: center;
+        }
+        .size-item img {
+            border: 1px solid #eee;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Round Favicon</h1>
+    <p>This tool will create a round favicon from your profile image</p>
+    
+    <div id="preview">
+        <img src="../images/profile.jpg" id="originalImage" width="200" height="200" style="border-radius: 50%; object-fit: cover;">
+    </div>
+    
+    <canvas id="canvas" width="512" height="512"></canvas>
+    
+    <button id="generateBtn">Generate Round Favicon</button>
+    
+    <div class="output">
+        <h2>Generated Favicons:</h2>
+        <div class="sizes" id="sizes"></div>
+    </div>
+    
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = document.getElementById('originalImage');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw circle
+            ctx.beginPath();
+            ctx.arc(canvas.width/2, canvas.height/2, canvas.width/2, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.clip();
+            
+            // Draw image
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            
+            // Generate different sizes
+            const sizes = [16, 32, 48, 64, 128, 256];
+            const sizesContainer = document.getElementById('sizes');
+            sizesContainer.innerHTML = '';
+            
+            sizes.forEach(size => {
+                // Create smaller canvas for each size
+                const sizeCanvas = document.createElement('canvas');
+                sizeCanvas.width = size;
+                sizeCanvas.height = size;
+                const sizeCtx = sizeCanvas.getContext('2d');
+                
+                // Draw circle
+                sizeCtx.beginPath();
+                sizeCtx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+                sizeCtx.closePath();
+                sizeCtx.clip();
+                
+                // Draw image
+                sizeCtx.drawImage(img, 0, 0, size, size);
+                
+                // Create download link
+                const dataUrl = sizeCanvas.toDataURL('image/png');
+                
+                // Create preview
+                const sizeItem = document.createElement('div');
+                sizeItem.className = 'size-item';
+                
+                const sizeImg = document.createElement('img');
+                sizeImg.src = dataUrl;
+                sizeImg.width = size;
+                sizeImg.height = size;
+                
+                const sizeText = document.createElement('p');
+                sizeText.textContent = `${size}x${size}`;
+                
+                const downloadLink = document.createElement('a');
+                downloadLink.href = dataUrl;
+                downloadLink.download = `favicon-${size}.png`;
+                downloadLink.textContent = 'Download';
+                downloadLink.style.display = 'block';
+                downloadLink.style.marginTop = '5px';
+                
+                sizeItem.appendChild(sizeImg);
+                sizeItem.appendChild(sizeText);
+                sizeItem.appendChild(downloadLink);
+                
+                sizesContainer.appendChild(sizeItem);
+                
+                // If this is 32x32, also create favicon.ico link
+                if (size === 32) {
+                    const icoLink = document.createElement('a');
+                    icoLink.href = dataUrl;
+                    icoLink.download = 'favicon.ico';
+                    icoLink.textContent = 'Download as favicon.ico';
+                    icoLink.style.display = 'block';
+                    icoLink.style.marginTop = '5px';
+                    
+                    sizeItem.appendChild(icoLink);
+                }
+            });
+            
+            // Create download link for original size
+            const dataUrl = canvas.toDataURL('image/png');
+            const downloadLink = document.createElement('a');
+            downloadLink.href = dataUrl;
+            downloadLink.download = 'favicon-original.png';
+            downloadLink.textContent = 'Download Original Size';
+            downloadLink.style.display = 'block';
+            downloadLink.style.marginTop = '20px';
+            
+            sizesContainer.appendChild(downloadLink);
+        });
+    </script>
+</body>
+</html> 

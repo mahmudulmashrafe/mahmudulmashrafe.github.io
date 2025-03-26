@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round Favicon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .round-image {
+            width: 256px;
+            height: 256px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: none;
+        }
+        canvas {
+            display: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .sizes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .favicon-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+        .favicon-preview p {
+            margin: 5px 0;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Round Favicon Generator</h1>
+    <p>Creates a round favicon from your profile image</p>
+    
+    <div class="container">
+        <img id="originalImage" src="../images/profile.jpg" alt="Original Image" class="round-image">
+        <button id="generateBtn">Generate Round Favicons</button>
+    </div>
+    
+    <div class="sizes" id="faviconContainer"></div>
+    
+    <canvas id="canvas"></canvas>
+    
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const sizes = [16, 32, 64, 128, 192, 512];
+            const faviconContainer = document.getElementById('faviconContainer');
+            faviconContainer.innerHTML = '';
+            
+            const originalImage = document.getElementById('originalImage');
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Generate favicons for different sizes
+            sizes.forEach(size => {
+                canvas.width = size;
+                canvas.height = size;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, size, size);
+                
+                // Create circular mask
+                ctx.beginPath();
+                ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.clip();
+                
+                // Draw the image on the canvas
+                ctx.drawImage(originalImage, 0, 0, size, size);
+                
+                // Convert to data URL
+                const dataURL = canvas.toDataURL('image/png');
+                
+                // Create a download link
+                const downloadLink = document.createElement('a');
+                downloadLink.href = dataURL;
+                downloadLink.download = `favicon-${size}x${size}.png`;
+                
+                // Create preview
+                const previewDiv = document.createElement('div');
+                previewDiv.className = 'favicon-preview';
+                
+                const img = document.createElement('img');
+                img.src = dataURL;
+                img.width = size;
+                img.height = size;
+                
+                const sizeText = document.createElement('p');
+                sizeText.textContent = `${size}x${size}`;
+                
+                const downloadBtn = document.createElement('button');
+                downloadBtn.textContent = 'Download';
+                downloadBtn.style.fontSize = '12px';
+                downloadBtn.style.padding = '5px 10px';
+                downloadBtn.onclick = function() {
+                    downloadLink.click();
+                };
+                
+                previewDiv.appendChild(img);
+                previewDiv.appendChild(sizeText);
+                previewDiv.appendChild(downloadBtn);
+                
+                faviconContainer.appendChild(previewDiv);
+            });
+            
+            // Generate favicon.ico data
+            canvas.width = 32;
+            canvas.height = 32;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, 32, 32);
+            
+            // Create circular mask
+            ctx.beginPath();
+            ctx.arc(16, 16, 16, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.clip();
+            
+            // Draw the image on the canvas
+            ctx.drawImage(originalImage, 0, 0, 32, 32);
+            
+            // Convert to data URL for favicon.ico
+            const icoDataURL = canvas.toDataURL('image/x-icon');
+            
+            // Create a download link for favicon.ico
+            const icoDownloadLink = document.createElement('a');
+            icoDownloadLink.href = icoDataURL;
+            icoDownloadLink.download = 'favicon.ico';
+            
+            // Create preview for favicon.ico
+            const icoPreviewDiv = document.createElement('div');
+            icoPreviewDiv.className = 'favicon-preview';
+            
+            const icoImg = document.createElement('img');
+            icoImg.src = icoDataURL;
+            icoImg.width = 32;
+            icoImg.height = 32;
+            
+            const icoText = document.createElement('p');
+            icoText.textContent = 'favicon.ico';
+            
+            const icoDownloadBtn = document.createElement('button');
+            icoDownloadBtn.textContent = 'Download';
+            icoDownloadBtn.style.fontSize = '12px';
+            icoDownloadBtn.style.padding = '5px 10px';
+            icoDownloadBtn.onclick = function() {
+                icoDownloadLink.click();
+            };
+            
+            icoPreviewDiv.appendChild(icoImg);
+            icoPreviewDiv.appendChild(icoText);
+            icoPreviewDiv.appendChild(icoDownloadBtn);
+            
+            faviconContainer.appendChild(icoPreviewDiv);
+        });
+    </script>
+</body>
+</html> 
