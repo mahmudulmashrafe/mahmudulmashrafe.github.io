@@ -41,7 +41,7 @@ const HeroSection = () => (
       </div>
       <div className="hidden md:flex justify-center">
         <img
-          src="https://mahmudulmashrafe.github.io/assets/images/profile.jpg"
+          src="/MM.jpg"
           alt="Mahmudul Mashrafe"
           className="w-72 h-72 object-cover rounded-2xl shadow-lg"
         />
