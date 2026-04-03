@@ -1,4 +1,4 @@
-import { Brain, Layout, Server, Settings, Monitor } from "lucide-react";
+import { Brain, Layout, Server, Settings, Monitor, Apple } from "lucide-react";
 import {
   SiPython,
   SiC,
@@ -20,10 +20,6 @@ import {
   SiJupyter,
   SiHtml5,
   SiCss,
-  SiApple,
-  SiWindows,
-  SiLinux,
-  SiAndroid,
 } from "react-icons/si";
 import { Database } from "lucide-react";
 
@@ -85,10 +81,10 @@ const skills = [
     icon: Settings,
     title: "Operating Systems",
     items: [
-      { name: "Mac OS", icon: SiApple },
-      { name: "Windows", icon: SiWindows },
-      { name: "Linux", icon: SiLinux },
-      { name: "Android", icon: SiAndroid },
+      { name: "Mac OS", icon: Apple },
+      { name: "Windows", icon: Monitor },
+      { name: "Linux", icon: Monitor },
+      { name: "Android", icon: Monitor },
     ],
   },
 ];
