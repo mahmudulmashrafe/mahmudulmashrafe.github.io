@@ -20,6 +20,10 @@ import {
   SiJupyter,
   SiHtml5,
   SiCss,
+  SiApple,
+  SiWindows,
+  SiLinux,
+  SiAndroid,
 } from "react-icons/si";
 import { Database } from "lucide-react";
 
@@ -75,6 +79,16 @@ const skills = [
       { name: "HTML", icon: SiHtml5 },
       { name: "CSS", icon: SiCss },
       { name: "Data Visualization", icon: Monitor },
+    ],
+  },
+  {
+    icon: Settings,
+    title: "Operating Systems",
+    items: [
+      { name: "Mac OS", icon: SiApple },
+      { name: "Windows", icon: SiWindows },
+      { name: "Linux", icon: SiLinux },
+      { name: "Android", icon: SiAndroid },
     ],
   },
 ];
