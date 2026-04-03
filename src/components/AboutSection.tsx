@@ -14,7 +14,7 @@ const AboutSection = () => (
         </div>
         <div className="grid grid-cols-2 gap-6">
           {[
-            { label: "Experiences", value: "2 Years+" },
+            { label: "Experiences", value: "2y+" },
             { label: "Projects", value: "15+" },
             { label: "Tech Skills", value: "20+" },
             { label: "Certifications", value: "5+" },
