@@ -14,20 +14,8 @@ const HashScrollHandler = () => {
       if (id) {
         const element = document.getElementById(id);
         if (element) {
-          // Remove previous highlight
-          document.querySelectorAll(".scroll-highlight").forEach((el) => {
-            el.classList.remove("scroll-highlight");
-          });
-          
           setTimeout(() => {
-            // Add highlight animation
-            element.classList.add("scroll-highlight");
             element.scrollIntoView({ behavior: "smooth" });
-            
-            // Remove highlight after animation
-            setTimeout(() => {
-              element.classList.remove("scroll-highlight");
-            }, 2000);
           }, 100);
         }
       }
