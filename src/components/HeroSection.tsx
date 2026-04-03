@@ -2,7 +2,7 @@ import { ArrowDown, Linkedin, Github, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  const roles = ["Data Scientist", "ML Expert"];
+  const roles = ["Data Scientist", "ML Enthusiast"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [exitCharIndex, setExitCharIndex] = useState(0);
