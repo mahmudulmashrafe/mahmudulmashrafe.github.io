@@ -33,7 +33,7 @@ const education = [
 ];
 
 const EducationSection = () => (
-  <section id="education" className="py-24 animate-fade-in">
+  <section id="education" className="py-24">
     <div className="max-w-5xl mx-auto px-6">
       <h2 className="text-3xl font-bold text-heading mb-2">Education</h2>
       <div className="w-12 h-1 bg-primary rounded mb-8" />

@@ -49,7 +49,7 @@ const HeroSection = () => {
     : currentRole.slice(0, currentCharIndex);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative pt-16 animate-fade-in">
+    <section id="home" className="min-h-screen flex items-center justify-center relative pt-16">
       <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <div className="h-12 flex items-center">

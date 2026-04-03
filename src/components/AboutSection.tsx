@@ -1,5 +1,5 @@
 const AboutSection = () => (
-  <section id="about" className="py-24 bg-secondary animate-fade-in">
+  <section id="about" className="py-24 bg-secondary">
     <div className="max-w-5xl mx-auto px-6">
       <h2 className="text-3xl font-bold text-heading mb-2">About Me</h2>
       <div className="w-12 h-1 bg-primary rounded mb-8" />

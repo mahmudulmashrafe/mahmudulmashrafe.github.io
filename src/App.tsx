@@ -13,6 +13,7 @@ const SectionAnimationHandler = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Add animation when section comes into view
             entry.target.classList.add("animate-fade-in");
           }
         });
@@ -20,11 +21,18 @@ const SectionAnimationHandler = () => {
       { threshold: 0.1 }
     );
 
-    // Observe all sections
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    // Observe all sections with a slight delay to ensure DOM is ready
+    setTimeout(() => {
+      const sections = document.querySelectorAll("section[id]");
+      sections.forEach((section) => {
+        observer.observe(section);
+        // Trigger intersection check immediately for sections already visible
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          section.classList.add("animate-fade-in");
+        }
+      });
+    }, 100);
 
     return () => observer.disconnect();
   }, []);

@@ -69,7 +69,7 @@ const moreRepos = [
 ];
 
 const ProjectsSection = () => (
-  <section id="projects" className="py-24 animate-fade-in">
+  <section id="projects" className="py-24">
     <div className="max-w-5xl mx-auto px-6">
       <h2 className="text-3xl font-bold text-heading mb-2">Projects</h2>
       <div className="w-12 h-1 bg-primary rounded mb-8" />

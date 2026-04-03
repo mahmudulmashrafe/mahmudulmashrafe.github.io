@@ -67,7 +67,7 @@ const ExperienceSection = () => {
   const visible = showAll ? experiences : experiences.slice(0, INITIAL_SHOW);
 
   return (
-    <section id="experience" className="py-24 bg-secondary animate-fade-in">
+    <section id="experience" className="py-24 bg-secondary">
       <div className="max-w-5xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-heading mb-2">Experiences</h2>
         <div className="w-12 h-1 bg-primary rounded mb-8" />
