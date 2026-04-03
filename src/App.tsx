@@ -9,32 +9,21 @@ const queryClient = new QueryClient();
 
 const SectionAnimationHandler = () => {
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Add animation when section comes into view
-            entry.target.classList.add("animate-fade-in");
+    const handleHashChange = () => {
+      // When navigating to a section via navbar, add fade-in animation
+      const id = window.location.hash.slice(1);
+      if (id) {
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.classList.add("animate-fade-in");
           }
-        });
-      },
-      { threshold: 0.1 }
-    );
+        }, 150);
+      }
+    };
 
-    // Observe all sections with a slight delay to ensure DOM is ready
-    setTimeout(() => {
-      const sections = document.querySelectorAll("section[id]");
-      sections.forEach((section) => {
-        observer.observe(section);
-        // Trigger intersection check immediately for sections already visible
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          section.classList.add("animate-fade-in");
-        }
-      });
-    }, 100);
-
-    return () => observer.disconnect();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   return null;
