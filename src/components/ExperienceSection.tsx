@@ -81,11 +81,6 @@ const ExperienceSection = () => {
                   i % 2 === 0 ? "md:pr-12" : "md:ml-auto md:pl-12"
                 }`}
               >
-                <div
-                  className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 border-primary bg-background left-0 md:left-auto ${
-                    i % 2 === 0 ? "md:right-[-8px]" : "md:left-[-8px]"
-                  }`}
-                />
                 <div className="bg-card p-6 rounded-xl border border-border">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="shrink-0 w-10 h-10 rounded-lg bg-secondary overflow-hidden flex items-center justify-center">
