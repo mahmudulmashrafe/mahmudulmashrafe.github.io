@@ -69,7 +69,7 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24 bg-secondary">
       <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-heading mb-2">Experience</h2>
+        <h2 className="text-3xl font-bold text-heading mb-2">Experiences</h2>
         <div className="w-12 h-1 bg-primary rounded mb-8" />
         <div className="relative">
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border md:left-1/2 md:-translate-x-px" />
@@ -82,7 +82,7 @@ const ExperienceSection = () => {
                 }`}
               >
                 <div
-                  className={`absolute top-2 left-0 w-3.5 h-3.5 rounded-full border-2 border-primary bg-background md:left-auto ${
+                  className={`absolute top-1/2 -translate-y-1/2 left-0 w-3.5 h-3.5 rounded-full border-2 border-primary bg-background md:left-auto ${
                     i % 2 === 0 ? "md:right-[-17px]" : "md:left-[-17px]"
                   }`}
                 />
