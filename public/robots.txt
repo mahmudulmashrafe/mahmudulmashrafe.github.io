@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://mahmudulmashrafe.github.io/sitemap.xml
+
