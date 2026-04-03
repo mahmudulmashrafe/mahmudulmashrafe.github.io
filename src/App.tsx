@@ -7,6 +7,31 @@ import Index from "./pages/Index.tsx";
 
 const queryClient = new QueryClient();
 
+const SectionAnimationHandler = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe all sections
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
+};
+
 const HashScrollHandler = () => {
   useEffect(() => {
     const handleHashChange = () => {
@@ -42,6 +67,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <SectionAnimationHandler />
       <HashScrollHandler />
       <Index />
     </TooltipProvider>
