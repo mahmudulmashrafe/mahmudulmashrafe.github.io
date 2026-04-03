@@ -5,32 +5,46 @@ const HeroSection = () => {
   const roles = ["Data Scientist", "ML Expert"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
+  const [exitCharIndex, setExitCharIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
 
   const currentRole = roles[currentRoleIndex];
   const totalChars = currentRole.length;
 
   useEffect(() => {
-    if (currentCharIndex < totalChars) {
-      const timer = setTimeout(() => {
-        setCurrentCharIndex((prev) => prev + 1);
-      }, 100);
-      return () => clearTimeout(timer);
+    if (!isExiting) {
+      // Typing phase
+      if (currentCharIndex < totalChars) {
+        const timer = setTimeout(() => {
+          setCurrentCharIndex((prev) => prev + 1);
+        }, 100);
+        return () => clearTimeout(timer);
+      } else {
+        // Wait before exiting
+        const timer = setTimeout(() => {
+          setIsExiting(true);
+        }, 2000);
+        return () => clearTimeout(timer);
+      }
     } else {
-      const timer = setTimeout(() => {
-        setIsExiting(true);
-        setTimeout(() => {
-          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-          setCurrentCharIndex(0);
-          setIsExiting(false);
-        }, 500);
-      }, 2000);
-      return () => clearTimeout(timer);
+      // Deleting phase
+      if (exitCharIndex < totalChars) {
+        const timer = setTimeout(() => {
+          setExitCharIndex((prev) => prev + 1);
+        }, 80);
+        return () => clearTimeout(timer);
+      } else {
+        // Switch to next role
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+        setCurrentCharIndex(0);
+        setExitCharIndex(0);
+        setIsExiting(false);
+      }
     }
-  }, [currentCharIndex, totalChars, currentRoleIndex]);
+  }, [currentCharIndex, exitCharIndex, totalChars, isExiting]);
 
   const displayText = isExiting
-    ? currentRole.slice(0, totalChars - Math.floor((totalChars / 5)))  // Fade out by reducing chars
+    ? currentRole.slice(0, totalChars - exitCharIndex)
     : currentRole.slice(0, currentCharIndex);
 
   return (
@@ -41,12 +55,9 @@ const HeroSection = () => {
             <p className="text-sm font-mono text-subtle tracking-wider uppercase">
               I'm{" "}
               <span
-                className={`text-primary font-bold transition-all duration-300 ${
-                  isExiting ? "animate-text-exit" : "animate-text-slide"
-                }`}
+                className={`text-primary font-bold transition-all duration-300`}
               >
                 {displayText}
-                <span className="animate-pulse">▌</span>
               </span>
             </p>
           </div>
