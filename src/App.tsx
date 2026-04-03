@@ -21,8 +21,13 @@ const HashScrollHandler = () => {
       }
     };
 
-    // Handle on mount
-    handleHashChange();
+    // On mount, always scroll to home
+    const homeElement = document.getElementById("home");
+    if (homeElement) {
+      setTimeout(() => {
+        homeElement.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
     
     // Handle hash changes
     window.addEventListener("hashchange", handleHashChange);
