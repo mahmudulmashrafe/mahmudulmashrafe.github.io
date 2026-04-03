@@ -68,9 +68,6 @@ const HeroSection = () => {
           <p className="text-lg text-subtle leading-relaxed max-w-md">
             I transform raw data into meaningful insights and practical solutions using advanced statistical techniques and cutting-edge machine learning algorithms. As a Data Scientist and Machine Learning Enthusiast, I specialize in AI-driven analytics and predictive modeling.
           </p>
-          <p className="text-sm text-subtle/70 leading-relaxed max-w-md hidden md:block">
-            Also known as: mahmudul, mashrafe, mahmudulmashrafe, MahmudulMashrafe, mashrafeuiu
-          </p>
           <div className="flex gap-4 pt-2">
             <a
               href="#contact"
