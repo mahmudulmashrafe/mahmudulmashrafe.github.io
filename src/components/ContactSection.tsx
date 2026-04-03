@@ -10,7 +10,7 @@ const ContactSection = () => (
       </p>
       <div className="flex flex-wrap justify-center gap-6">
         {[
-          { icon: Mail, label: "mmashrafe223115@bscse.uiu.ac.bd", href: "mailto:mmashrafe223115@bscse.uiu.ac.bd" },
+          { icon: Mail, label: "mahmudulmashrafe@gmail.com", href: "mailto:mahmudulmashrafe@gmail.com" },
           { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/mahmudulmashrafe" },
           { icon: Github, label: "GitHub", href: "https://github.com/mahmudulmashrafe" },
         ].map((item) => (

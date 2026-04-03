@@ -21,8 +21,11 @@ const HashScrollHandler = () => {
       }
     };
 
-    // Wait for DOM to be ready before scrolling to home
+    // Always scroll to home on page load/refresh
     const scrollToHome = () => {
+      // Clear the hash to ensure home is always the starting point
+      window.history.replaceState(null, "", window.location.pathname);
+      
       const homeElement = document.getElementById("home");
       if (homeElement) {
         homeElement.scrollIntoView({ behavior: "smooth" });
