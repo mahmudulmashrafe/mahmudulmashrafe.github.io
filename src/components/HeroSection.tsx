@@ -1,4 +1,5 @@
 import { ArrowDown, Linkedin, Github, Mail } from "lucide-react";
+import { SiKaggle, SiResearchgate } from "react-icons/si";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
@@ -89,13 +90,13 @@ const HeroSection = () => {
               <Linkedin size={20} />
             </a>
             <a href="https://www.kaggle.com/mahmudulmashrafe" target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-primary transition-colors" title="Kaggle">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M14.4 14.67h-2.1v6.52h2.1zm9.26-8.15h-5.62v14.4h5.62c1.24 0 2.25 1.01 2.25 2.25 0 1.24-1.01 2.25-2.25 2.25H9c-1.24 0-2.25-1.01-2.25-2.25V2.25C9 1.01 10.01 0 11.25 0h13.4c1.24 0 2.25 1.01 2.25 2.25 0 1.24-1.01 2.25-2.25 2.25h-5.62v1.77zm-9.26 1.24H10.5v11.63h3.84zm0-6.65h-3.9V2.1h3.9z"/></svg>
+              <SiKaggle size={20} />
             </a>
             <a href="https://x.com/iammashrafe" target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-primary transition-colors" title="X (Twitter)">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.07-6.62-5.848 6.62H2.18l7.732-8.835L1.254 2.25h6.554l4.597 6.084 5.309-6.084zM17.15 18.74h1.828L5.566 3.88H3.62L17.15 18.74z"/></svg>
             </a>
             <a href="https://www.researchgate.net/profile/Mahmudul-Mashrafe" target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-primary transition-colors" title="ResearchGate">
-              <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M26 30H6v-2h20v2zm0-4H6v-2h20v2zm-8-4c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm0-2c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/></svg>
+              <SiResearchgate size={20} />
             </a>
             <a href="mailto:mmashrafe223115@bscse.uiu.ac.bd" className="text-subtle hover:text-primary transition-colors" title="Email">
               <Mail size={20} />
