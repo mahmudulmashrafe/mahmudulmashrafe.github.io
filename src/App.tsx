@@ -12,22 +12,25 @@ const HashScrollHandler = () => {
     const handleHashChange = () => {
       const id = window.location.hash.slice(1);
       if (id) {
-        const element = document.getElementById(id);
-        if (element) {
-          setTimeout(() => {
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
             element.scrollIntoView({ behavior: "smooth" });
-          }, 100);
-        }
+          }
+        }, 150);
       }
     };
 
-    // Always scroll to home on page load/refresh
-    const homeElement = document.getElementById("home");
-    if (homeElement) {
-      setTimeout(() => {
+    // Wait for DOM to be ready before scrolling to home
+    const scrollToHome = () => {
+      const homeElement = document.getElementById("home");
+      if (homeElement) {
         homeElement.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
+      }
+    };
+
+    // Give page time to render
+    setTimeout(scrollToHome, 500);
     
     // Handle hash changes (clicking navbar links)
     window.addEventListener("hashchange", handleHashChange);
