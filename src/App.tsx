@@ -7,28 +7,6 @@ import Index from "./pages/Index.tsx";
 
 const queryClient = new QueryClient();
 
-const SectionAnimationHandler = () => {
-  useEffect(() => {
-    const handleHashChange = () => {
-      // When navigating to a section via navbar, add fade-in animation
-      const id = window.location.hash.slice(1);
-      if (id) {
-        setTimeout(() => {
-          const element = document.getElementById(id);
-          if (element) {
-            element.classList.add("animate-fade-in");
-          }
-        }, 150);
-      }
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
-
-  return null;
-};
-
 const HashScrollHandler = () => {
   useEffect(() => {
     const handleHashChange = () => {
@@ -64,7 +42,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <SectionAnimationHandler />
       <HashScrollHandler />
       <Index />
     </TooltipProvider>
