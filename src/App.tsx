@@ -54,12 +54,24 @@ const HashScrollHandler = () => {
       }
     };
 
-    // On mount, always scroll to home
-    const homeElement = document.getElementById("home");
-    if (homeElement) {
-      setTimeout(() => {
-        homeElement.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+    // On mount, check if there's a hash in the URL
+    const id = window.location.hash.slice(1);
+    if (id) {
+      // If there's a hash, scroll to that section
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    } else {
+      // If no hash, scroll to home (first visit)
+      const homeElement = document.getElementById("home");
+      if (homeElement) {
+        setTimeout(() => {
+          homeElement.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
     }
     
     // Handle hash changes
