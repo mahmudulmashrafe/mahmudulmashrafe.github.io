@@ -30,7 +30,7 @@ const HashScrollHandler = () => {
     };
 
     // Give page time to render
-    setTimeout(scrollToHome, 500);
+    setTimeout(scrollToHome, 100);
     
     // Handle hash changes (clicking navbar links)
     window.addEventListener("hashchange", handleHashChange);
