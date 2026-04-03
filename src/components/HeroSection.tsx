@@ -89,13 +89,13 @@ const HeroSection = () => {
               <Linkedin size={20} />
             </a>
             <a href="https://www.kaggle.com/mahmudulmashrafe" target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-primary transition-colors" title="Kaggle">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.825 23.859c-4.868 0-8.914 3.818-8.914 8.686s4.046 8.686 8.914 8.686 8.914-3.818 8.914-8.686-4.046-8.686-8.914-8.686zm4.339 9.341h-2.922v8.791h2.922v-8.791zm-5.922-3.738c-.922 0-1.664.742-1.664 1.663s.742 1.664 1.664 1.664 1.664-.742 1.664-1.664-.742-1.663-1.664-1.663zm0 8.879v-6.216c0-1.056.862-1.918 1.918-1.918s1.918.862 1.918 1.918v6.216h2.922v-6.635c0-2.662-2.169-4.831-4.831-4.831-1.331 0-2.528.545-3.379 1.415-1.056-1.331-2.663-2.186-4.483-2.186-3.298 0-5.993 2.695-5.993 5.993v5.244h2.922v-8.791h2.922v8.791h2.922v-3.395c0-.922.742-1.664 1.663-1.664s1.664.742 1.664 1.664v3.395h2.922z"/></svg>
+              <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M18.825 23.859c-4.868 0-8.914 3.818-8.914 8.686s4.046 8.686 8.914 8.686 8.914-3.818 8.914-8.686-4.046-8.686-8.914-8.686zm4.339 9.341h-2.922v8.791h2.922v-8.791zm-5.922-3.738c-.922 0-1.664.742-1.664 1.663s.742 1.664 1.664 1.664 1.664-.742 1.664-1.664-.742-1.663-1.664-1.663zm0 8.879v-6.216c0-1.056.862-1.918 1.918-1.918s1.918.862 1.918 1.918v6.216h2.922v-6.635c0-2.662-2.169-4.831-4.831-4.831-1.331 0-2.528.545-3.379 1.415-1.056-1.331-2.663-2.186-4.483-2.186-3.298 0-5.993 2.695-5.993 5.993v5.244h2.922v-8.791h2.922v8.791h2.922v-3.395c0-.922.742-1.664 1.663-1.664s1.664.742 1.664 1.664v3.395h2.922z"/></svg>
             </a>
             <a href="https://x.com/iammashrafe" target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-primary transition-colors" title="X (Twitter)">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.07-6.62-5.848 6.62H2.18l7.732-8.835L1.254 2.25h6.554l4.597 6.084 5.309-6.084zM17.15 18.74h1.828L5.566 3.88H3.62L17.15 18.74z"/></svg>
             </a>
             <a href="https://www.researchgate.net/profile/Mahmudul-Mashrafe" target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-primary transition-colors" title="ResearchGate">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 22.5H4.5V21h15v1.5zm0-3H4.5v-1.5h15v1.5zm-6-3c2.485 0 4.5-2.015 4.5-4.5S15.985 7.5 13.5 7.5 9 9.515 9 12s2.015 4.5 4.5 4.5zm0-1.5c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+              <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M26 30H6v-2h20v2zm0-4H6v-2h20v2zm-8-4c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm0-2c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/></svg>
             </a>
             <a href="mailto:mmashrafe223115@bscse.uiu.ac.bd" className="text-subtle hover:text-primary transition-colors" title="Email">
               <Mail size={20} />
