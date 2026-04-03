@@ -1,7 +1,7 @@
 import { Mail, Linkedin, Github } from "lucide-react";
 
 const ContactSection = () => (
-  <section id="contact" className="py-24 bg-secondary">
+  <section id="contact" className="py-24 bg-secondary animate-fade-in">
     <div className="max-w-5xl mx-auto px-6 text-center">
       <h2 className="text-3xl font-bold text-heading mb-2">Get in Touch</h2>
       <div className="w-12 h-1 bg-primary rounded mb-8 mx-auto" />

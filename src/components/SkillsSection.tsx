@@ -90,7 +90,7 @@ const skills = [
 ];
 
 const SkillsSection = () => (
-  <section id="skills" className="py-24">
+  <section id="skills" className="py-24 animate-fade-in">
     <div className="max-w-5xl mx-auto px-6">
       <h2 className="text-3xl font-bold text-heading mb-2">Tech Stack</h2>
       <div className="w-12 h-1 bg-primary rounded mb-8" />
