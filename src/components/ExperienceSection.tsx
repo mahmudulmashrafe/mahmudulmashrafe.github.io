@@ -82,8 +82,8 @@ const ExperienceSection = () => {
                 }`}
               >
                 <div
-                  className={`absolute top-1/2 -translate-y-1/2 left-0 w-3.5 h-3.5 rounded-full border-2 border-primary bg-background md:left-auto ${
-                    i % 2 === 0 ? "md:right-[-17px]" : "md:left-[-17px]"
+                  className={`absolute top-1/2 -translate-y-1/2 left-0 w-4 h-4 rounded-full border-2 border-primary bg-background md:left-auto ${
+                    i % 2 === 0 ? "md:right-[-19px]" : "md:left-[-19px]"
                   }`}
                 />
                 <div className="bg-card p-6 rounded-xl border border-border">

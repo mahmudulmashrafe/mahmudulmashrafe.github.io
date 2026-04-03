@@ -4,56 +4,49 @@ import { useState, useEffect } from "react";
 const HeroSection = () => {
   const roles = ["Data Scientist", "ML Expert"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
 
   const currentRole = roles[currentRoleIndex];
-  const words = currentRole.split(" ");
-  const totalWords = words.length;
+  const totalChars = currentRole.length;
 
   useEffect(() => {
-    if (currentWordIndex < totalWords) {
+    if (currentCharIndex < totalChars) {
       const timer = setTimeout(() => {
-        setCurrentWordIndex((prev) => prev + 1);
-      }, 300);
+        setCurrentCharIndex((prev) => prev + 1);
+      }, 100);
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => {
         setIsExiting(true);
         setTimeout(() => {
           setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-          setCurrentWordIndex(0);
+          setCurrentCharIndex(0);
           setIsExiting(false);
         }, 500);
       }, 2000);
       return () => clearTimeout(timer);
     }
-  }, [currentWordIndex, totalWords, currentRoleIndex]);
+  }, [currentCharIndex, totalChars, currentRoleIndex]);
+
+  const displayText = isExiting
+    ? currentRole.slice(0, totalChars - Math.floor((totalChars / 5)))  // Fade out by reducing chars
+    : currentRole.slice(0, currentCharIndex);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative pt-16">
       <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
-          <div className="h-12 flex items-center flex-wrap">
+          <div className="h-12 flex items-center">
             <p className="text-sm font-mono text-subtle tracking-wider uppercase">
               I'm{" "}
-              <span className="inline-flex gap-1 flex-wrap">
-                {words.map((word, idx) => (
-                  <span
-                    key={`${currentRoleIndex}-${idx}`}
-                    className={`text-primary font-bold transition-all duration-300 ${
-                      idx < currentWordIndex && !isExiting
-                        ? "animate-text-slide"
-                        : idx >= currentWordIndex && !isExiting
-                        ? "opacity-0"
-                        : isExiting
-                        ? "animate-text-exit"
-                        : "opacity-0"
-                    }`}
-                  >
-                    {word}
-                  </span>
-                ))}
+              <span
+                className={`text-primary font-bold transition-all duration-300 ${
+                  isExiting ? "animate-text-exit" : "animate-text-slide"
+                }`}
+              >
+                {displayText}
+                <span className="animate-pulse">▌</span>
               </span>
             </p>
           </div>
