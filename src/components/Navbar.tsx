@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
+  { label: "Home", href: "#" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
@@ -17,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="text-lg font-semibold text-primary tracking-tight">
+        <a href="#" className="text-lg font-semibold text-primary tracking-tight hover:opacity-80 transition-opacity cursor-pointer">
           MM
         </a>
         <div className="hidden md:flex items-center gap-8">
