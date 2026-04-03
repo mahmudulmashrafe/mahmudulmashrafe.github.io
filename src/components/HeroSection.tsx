@@ -70,7 +70,7 @@ const HeroSection = () => {
           </p>
           <div className="flex gap-4 pt-2">
             <a
-              href="#contact"
+              href="mailto:mahmudulmashrafe@gmail.com"
               className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Get in Touch
@@ -98,7 +98,7 @@ const HeroSection = () => {
             <a href="https://www.researchgate.net/profile/Mahmudul-Mashrafe" target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-primary transition-colors" title="ResearchGate">
               <SiResearchgate size={20} />
             </a>
-            <a href="mailto:mmashrafe223115@bscse.uiu.ac.bd" className="text-subtle hover:text-primary transition-colors" title="Email">
+            <a href="mailto:mahmudulmashrafe@gmail.com" className="text-subtle hover:text-primary transition-colors" title="Email">
               <Mail size={20} />
             </a>
           </div>
